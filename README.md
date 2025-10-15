@@ -1,2 +1,2 @@
-# mostand-gov
+# mostand-hokomi.gov
 منصة مستند حكومي - الخدمات القانونية في الأردن
