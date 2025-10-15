@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مستند حكومي - المنصة القانونية الأردنية</title>
+    <meta name="description" content="منصة مستند حكومي - الخدمات القانونية في الأردن، ربط المحامين مع العملاء بخدمات قانونية موثوقة">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --royal-blue: #1a365d;
+            --gold: #d4af37;
+            --light-blue: #4299e1;
+            --light-gray: #f7fafc;
+            --dark-gray: #4a5568;
+            --success: #38a169;
+            --warning: #ecc94b;
+            --danger: #e53e3e;
+            --border-radius: 8px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(26, 54, 93, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 20%);
+            z-index: -1;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-svg {
+            width: 50px;
+            height: 50px;
+            margin-left: 10px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--royal-blue);
+        }
+
+        .logo-text span {
+            color: var(--gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover {
+            color: var(--royal-blue);
+            background-color: rgba(26, 54, 93, 0.05);
+        }
+
+        .auth-buttons {
+            display: flex;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--royal-blue);
+            color: var(--royal-blue);
+            margin-left: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--royal-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2d4a7a;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(26, 54, 93, 0.05);
+        }
+
+        .btn-success {
+            background-color: var(--success);
+            color: white;
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .btn-warning {
+            background-color: var(--warning);
+            color: var(--dark-gray);
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--royal-blue);
+            font-weight: 600;
+        }
+
+        .btn-gold:hover {
+            background-color: #c19b2f;
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 14px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--royal-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(135deg, var(--royal-blue) 0%, #2d4a7a 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .hero-buttons .btn {
+            padding: 12px 30px;
+            font-size: 18px;
+        }
+
+        /* Features Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--royal-blue);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 70px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--dark-gray);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--royal-blue) 0%, var(--gold) 100%);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--royal-blue) 0%, #2d4a7a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 30px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--royal-blue);
+        }
+
+        /* Search Section */
+        .search-section {
+            background-color: white;
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .search-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 90%, rgba(26, 54, 93, 0.03) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            z-index: 1;
+        }
+
+        .search-title {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--royal-blue);
+        }
+
+        .search-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-gray);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--royal-blue);
+        }
+
+        .search-btn {
+            grid-column: 1 / -1;
+            padding: 15px;
+            background-color: var(--royal-blue);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-btn:hover {
+            background-color: #2d4a7a;
+        }
+
+        /* Lawyers Section */
+        .lawyers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .lawyer-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .lawyer-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .lawyer-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--royal-blue) 0%, var(--gold) 100%);
+        }
+
+        .lawyer-img {
+            height: 200px;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-gray);
+            font-size: 14px;
+        }
+
+        .lawyer-info {
+            padding: 20px;
+        }
+
+        .lawyer-name {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--royal-blue);
+        }
+
+        .lawyer-specialty {
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .lawyer-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .stars {
+            color: var(--gold);
+            margin-left: 5px;
+        }
+
+        .lawyer-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Lawyer Registration Section */
+        .registration-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 0;
+        }
+
+        .form-container {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .form-section:last-child {
+            border-bottom: none;
+        }
+
+        .form-section-title {
+            font-size: 1.3rem;
+            color: var(--royal-blue);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+
+        .form-group {
+            flex: 1 0 300px;
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            flex: 1 0 100%;
+        }
+
+        .required::after {
+            content: " *";
+            color: var(--danger);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .file-upload {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-upload-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .file-upload-label {
+            display: block;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border: 1px dashed #ddd;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .file-upload-label:hover {
+            background-color: #e9ecef;
+        }
+
+        .file-upload-label i {
+            margin-left: 8px;
+        }
+
+        .file-info {
+            margin-top: 5px;
+            font-size: 14px;
+            color: var(--dark-gray);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-item input {
+            width: auto;
+            margin-left: 8px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .submit-btn {
+            padding: 15px 40px;
+            font-size: 18px;
+            background-color: var(--royal-blue);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #2d4a7a;
+        }
+
+        /* Terms & Conditions Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-modal {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark-gray);
+            background: none;
+            border: none;
+        }
+
+        .close-modal:hover {
+            color: var(--danger);
+        }
+
+        .terms-content {
+            max-height: 70vh;
+            overflow-y: auto;
+            padding: 10px;
+            line-height: 1.8;
+        }
+
+        .terms-content h2 {
+            color: var(--royal-blue);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .terms-content h3 {
+            color: var(--royal-blue);
+            margin: 25px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .terms-content p {
+            margin-bottom: 15px;
+        }
+
+        .terms-content ul {
+            margin-right: 20px;
+            margin-bottom: 15px;
+        }
+
+        .terms-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--royal-blue) 0%, #2d4a7a 100%);
+            color: white;
+            padding: 60px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .developer-info {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .developer-info a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .terms-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .terms-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .terms-links a:hover {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                transition: right 0.3s;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .auth-buttons {
+                display: none;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 10px;
+            }
+            
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                flex-direction: column;
+            }
+            
+            .form-group {
+                flex: 1 0 100%;
+            }
+            
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+                margin: 20px auto;
+            }
+            
+            .terms-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo-text {
+                font-size: 20px;
+            }
+            
+            .logo-svg {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .hero {
+                padding: 120px 0 50px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            .feature-card, .lawyer-card {
+                padding: 20px;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="شعار مستند حكومي">
+                        <defs>
+                            <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                                <stop offset="0" stop-color="#0b3d91" />
+                                <stop offset="1" stop-color="#144fa2" />
+                            </linearGradient>
+                            <linearGradient id="g2" x1="0" x2="1" y1="0" y2="1">
+                                <stop offset="0" stop-color="#f2c94c" />
+                                <stop offset="1" stop-color="#d4a017" />
+                            </linearGradient>
+                        </defs>
+
+                        <circle cx="100" cy="100" r="96" fill="url(#g1)" />
+                        <circle cx="100" cy="100" r="86" fill="#ffffff" opacity="0.04" />
+
+                        <!-- كتاب (أسفل الوسط) -->
+                        <g transform="translate(34,110)">
+                            <path d="M8 34 C30 10, 70 10, 92 34 L92 44 C70 20, 30 20, 8 44 Z" fill="#ffffff" opacity="0.95"/>
+                            <rect x="4" y="6" width="96" height="36" rx="3" ry="3" fill="#ffffff" />
+                            <rect x="4" y="6" width="12" height="36" rx="2" ry="2" fill="url(#g2)" />
+                            <path d="M20 20 L88 20 M20 26 L88 26 M20 32 L88 32" stroke="#e6e6e6" stroke-width="1" stroke-linecap="round"/>
+                        </g>
+
+                        <!-- ميزان العدالة (في الأعلى، متناظر) -->
+                        <g transform="translate(0,0)">
+                            <path d="M100 30 L100 88" stroke="#ffd97a" stroke-width="4" stroke-linecap="round"/>
+                            <line x1="70" y1="48" x2="130" y2="48" stroke="#ffd97a" stroke-width="4" stroke-linecap="round"/>
+                            <line x1="82" y1="48" x2="82" y2="70" stroke="#ffd97a" stroke-width="2"/>
+                            <line x1="118" y1="48" x2="118" y2="70" stroke="#ffd97a" stroke-width="2"/>
+                            <ellipse cx="82" cy="76" rx="12" ry="6" fill="#ffffff" stroke="#ffd97a" stroke-width="2"/>
+                            <ellipse cx="118" cy="76" rx="12" ry="6" fill="#ffffff" stroke="#ffd97a" stroke-width="2"/>
+                            <circle cx="100" cy="48" r="3" fill="#ffd97a" />
+                        </g>
+
+                        <!-- مطرقة العدالة مائلة فوق الكتاب -->
+                        <g transform="rotate(-35 120 110)">
+                            <rect x="110" y="100" width="4" height="44" rx="2" fill="#553a1f" />
+                            <rect x="98" y="88" width="28" height="18" rx="3" fill="#b8742a" />
+                            <rect x="98" y="96" width="28" height="4" rx="2" fill="#8d5a19" opacity="0.5" />
+                        </g>
+
+                        <circle cx="100" cy="100" r="72" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="2" />
+
+                        <title>شعار مستند حكومي - كتاب وميزان ومطرقة العدالة</title>
+                        <desc>شعار دائري يظهر كتاباً في الأسفل، ميزان عدالة في الأعلى، ومطرقة عدالة مائلة فوق الغلاف، ألوان زرقاء وذهبية.</desc>
+                    </svg>
+                </div>
+                <div class="logo-text">مستند <span>حكومي</span></div>
+            </div>
+            
+            <button class="mobile-menu-btn">☰</button>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#services">الخدمات</a></li>
+                    <li><a href="#lawyers">المحامون</a></li>
+                    <li><a href="#join">انضم كمحام</a></li>
+                    <li><a href="#contact">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            
+            <div class="auth-buttons">
+                <button class="btn btn-outline">تسجيل الدخول</button>
+                <button class="btn btn-primary">إنشاء حساب</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>الخدمات القانونية بين يديك في الأردن</h1>
+            <p>منصة "مستند حكومي" توفر لك أفضل الخدمات القانونية من خلال محامين أردنيين معتمدين بخبرات واسعة في مختلف التخصصات القانونية</p>
+            <div class="hero-buttons">
+                <button class="btn btn-gold">ابحث عن محامي</button>
+                <button class="btn btn-outline" style="background-color: rgba(255,255,255,0.1); color: white; border-color: white;">استشارة سريعة</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>خدماتنا المتكاملة</h2>
+                <p>نقدم مجموعة شاملة من الخدمات القانونية المصممة خصيصًا لتلبية احتياجاتك في الأردن</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>استشارات قانونية</h3>
+                    <p>احصل على استشارات قانونية فورية من محامين أردنيين معتمدين في مختلف التخصصات</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>صياغة المستندات</h3>
+                    <p>صياغة ومراجعة العقود والمستندات القانونية بدقة واحترافية وفق القوانين الأردنية</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>تمثيل قضائي</h3>
+                    <p>تمثيلك في المحاكم والجهات القضائية الأردنية من قبل محامين متخصصين</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>البحث القانوني</h3>
+                    <p>خدمات البحث القانوني المتخصص لتقديم أفضل الحلول لقضيتك في الأردن</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>التأسيس والتراخيص</h3>
+                    <p>مساعدتك في تأسيس الشركات واستخراج التراخيص التجارية في المملكة الأردنية</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>التحكيم والتسوية</h3>
+                    <p>خدمات التحكيم والتسوية الودية لتسوية النزاعات خارج المحاكم الأردنية</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <h2 class="search-title">ابحث عن المحامي المناسب</h2>
+                <form class="search-form">
+                    <div class="form-group">
+                        <label for="specialty">التخصص القانوني</label>
+                        <select id="specialty">
+                            <option value="">اختر التخصص</option>
+                            <option value="family">قانون الأسرة</option>
+                            <option value="commercial">القانون التجاري</option>
+                            <option value="labor">قانون العمل</option>
+                            <option value="realestate">القانون العقاري</option>
+                            <option value="criminal">القانون الجنائي</option>
+                            <option value="administrative">القانون الإداري</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">المحافظة</label>
+                        <select id="location">
+                            <option value="">اختر المحافظة</option>
+                            <option value="amman">عمان</option>
+                            <option value="irbid">إربد</option>
+                            <option value="zarqa">الزرقاء</option>
+                            <option value="balqa">البقعة</option>
+                            <option value="madaba">مأدبا</option>
+                            <option value="karak">الكرك</option>
+                            <option value="maan">معان</option>
+                            <option value="aqaba">العقبة</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="search">كلمات البحث</label>
+                        <input type="text" id="search" placeholder="ابحث بكلمات مفتاحية مثل: محامي تجاري، محامي عقود...">
+                    </div>
+                    
+                    <button type="submit" class="search-btn">ابحث الآن</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lawyers Section -->
+    <section class="section" id="lawyers">
+        <div class="container">
+            <div class="section-title">
+                <h2>المحامون المعتمدون</h2>
+                <p>تعرف على نخبة من المحامين الأردنيين المعتمدين والمتخصصين في مختلف المجالات القانونية</p>
+            </div>
+            
+            <div class="lawyers-grid">
+                <div class="lawyer-card">
+                    <div class="lawyer-img">صورة المحامي</div>
+                    <div class="lawyer-info">
+                        <h3 class="lawyer-name">أحمد محمد</h3>
+                        <div class="lawyer-specialty">القانون التجاري والشركات</div>
+                        <div class="lawyer-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>(4.9)</span>
+                        </div>
+                        <p>محامي أردني معتمد بخبرة 15 سنة في القانون التجاري وتأسيس الشركات</p>
+                        <div class="lawyer-actions">
+                            <button class="btn btn-primary btn-sm">حجز استشارة</button>
+                            <button class="btn btn-outline btn-sm">عرض الملف</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lawyer-card">
+                    <div class="lawyer-img">صورة المحامية</div>
+                    <div class="lawyer-info">
+                        <h3 class="lawyer-name">فاطمة أحمد</h3>
+                        <div class="lawyer-specialty">قانون الأسرة والميراث</div>
+                        <div class="lawyer-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>(4.8)</span>
+                        </div>
+                        <p>محامية أردنية معتمدة متخصصة في قضايا الأسرة والميراث بخبرة 12 سنة</p>
+                        <div class="lawyer-actions">
+                            <button class="btn btn-primary btn-sm">حجز استشارة</button>
+                            <button class="btn btn-outline btn-sm">عرض الملف</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lawyer-card">
+                    <div class="lawyer-img">صورة المحامي</div>
+                    <div class="lawyer-info">
+                        <h3 class="lawyer-name">خالد سليمان</h3>
+                        <div class="lawyer-specialty">القانون الجنائي</div>
+                        <div class="lawyer-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span>(4.7)</span>
+                        </div>
+                        <p>محامي جنائي أردني معتمد بخبرة 18 سنة في الدفاع عن القضايا الجنائية</p>
+                        <div class="lawyer-actions">
+                            <button class="btn btn-primary btn-sm">حجز استشارة</button>
+                            <button class="btn btn-outline btn-sm">عرض الملف</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lawyer Registration Section -->
+    <section class="registration-section" id="join">
+        <div class="container">
+            <div class="section-title">
+                <h2>انضم إلى منصة "مستند حكومي" كمحام</h2>
+                <p>انضم إلى شبكة المحامين الأردنيين المعتمدين ووسع قاعدة عملائك مع الحفاظ على مهنيتك واستقلاليتك</p>
+            </div>
+
+            <!-- Lawyer Registration Form -->
+            <div class="form-container">
+                <form id="lawyer-registration-form">
+                    <!-- Personal Information -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">المعلومات الشخصية</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="full-name" class="required">الاسم الرباعي</label>
+                                <input type="text" id="full-name" name="full-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender" class="required">الجنس</label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">اختر الجنس</option>
+                                    <option value="male">ذكر</option>
+                                    <option value="female">أنثى</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="birth-date" class="required">تاريخ الميلاد</label>
+                                <input type="date" id="birth-date" name="birth-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="employee-id" class="required">رقم عضوية نقابة المحامين الأردنيين</label>
+                                <input type="text" id="employee-id" name="employee-id" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Work Experience -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">خبرات العمل والتخصصات</h3>
+                        <div class="form-group">
+                            <label class="required">اختر التخصصات القانونية التي تمتلك خبرة فيها:</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="consultation" name="expertise" value="consultation">
+                                    <label for="consultation">استشارة قانونية سريعة</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="specialized" name="expertise" value="specialized">
+                                    <label for="specialized">استشارة متخصصة</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="contract" name="expertise" value="contract">
+                                    <label for="contract">صياغة عقد جديد</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="documents" name="expertise" value="documents">
+                                    <label for="documents">صياغة مستندات وحماية البيانات</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="memorandums" name="expertise" value="memorandums">
+                                    <label for="memorandums">كتابة لوائح ومذكرات</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="legal-audit" name="expertise" value="legal-audit">
+                                    <label for="legal-audit">تدقيق قانوني</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Documents -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">المستندات المطلوبة</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bar-id" class="required">صورة هوية نقابة المحامين الأردنيين</label>
+                                <div class="file-upload">
+                                    <input type="file" id="bar-id" name="bar-id" class="file-upload-input" accept="image/*" required>
+                                    <label for="bar-id" class="file-upload-label">
+                                        <i class="fas fa-cloud-upload-alt"></i> اختر ملف
+                                    </label>
+                                </div>
+                                <div class="file-info">يجب أن تكون الصورة واضحة ومقروءة</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="personal-photo" class="required">صورة شخصية بخلفية بيضاء</label>
+                                <div class="file-upload">
+                                    <input type="file" id="personal-photo" name="personal-photo" class="file-upload-input" accept="image/*" required>
+                                    <label for="personal-photo" class="file-upload-label">
+                                        <i class="fas fa-cloud-upload-alt"></i> اختر ملف
+                                    </label>
+                                </div>
+                                <div class="file-info">حجم الملف لا يتجاوز 2MB، بخلفية بيضاء</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Biography -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">نبذة تعريفية</h3>
+                        <div class="form-group full-width">
+                            <label for="bio" class="required">نبذة تعريفية مختصرة (تعرض للعميل)</label>
+                            <textarea id="bio" name="bio" placeholder="اكتب نبذة مختصرة عن نفسك وخبراتك القانونية في الأردن..." required></textarea>
+                            <div class="file-info">يجب ألا تتجاوز 300 كلمة</div>
+                        </div>
+                    </div>
+
+                    <!-- Terms Agreement -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">الموافقة على الشروط والأحكام</h3>
+                        <div class="form-group full-width">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="terms-agreement" name="terms-agreement" required>
+                                <label for="terms-agreement" class="required">أقر بأني قد قرأت وفهمت <a href="#" id="show-lawyer-terms">شروط وأحكام تسجيل المحامين</a> وأوافق على الالتزام بها كاملة</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">تقديم طلب الانضمام</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container footer-content">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>مستند حكومي</h3>
+                    <p>المنصة القانونية الأولى في الأردن التي تربط العملاء بالمحامين المعتمدين في مختلف التخصصات القانونية.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#services">الخدمات</a></li>
+                        <li><a href="#lawyers">المحامون</a></li>
+                        <li><a href="#join">انضم كمحام</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>خدماتنا</h3>
+                    <ul>
+                        <li><a href="#">استشارات قانونية</a></li>
+                        <li><a href="#">صياغة المستندات</a></li>
+                        <li><a href="#">تمثيل قضائي</a></li>
+                        <li><a href="#">البحث القانوني</a></li>
+                        <li><a href="#">التأسيس والتراخيص</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>اتصل بنا</h3>
+                    <ul>
+                        <li>الهاتف: 065000000</li>
+                        <li>البريد الإلكتروني: info@mostand.gov.jo</li>
+                        <li>العنوان: عمان، المملكة الأردنية الهاشمية</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; 2025 منصة مستند حكومي - الأردن</p>
+                <div class="developer-info">
+                    تم التطوير بواسطة <a href="https://wa.me/962796083626" target="_blank">المهندس فراس دحدوح</a>
+                </div>
+                <div class="terms-links">
+                    <a href="#" id="show-lawyer-terms-footer">شروط وأحكام تسجيل المحامين</a>
+                    <a href="#" id="show-client-terms-footer">شروط وأحكام التسجيل للعملاء</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lawyer Terms Modal -->
+    <div id="lawyer-terms-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="terms-content">
+                <h2>شروط وأحكام تسجيل المحامين في منصة "مستند حكومي"</h2>
+                
+                <h3>المقدمة</h3>
+                <p>بموافقتك على التسجيل في منصة "مستند حكومي" الإلكترونية (المشار إليها فيما يلي بـ"المنصة") كمحامٍ مزاول، فإنك تقر وتلتزم بجميع الشروط والأحكام الواردة أدناه. تعتبر موافقتك هذه التزاماً قانونياً بينك وبين إدارة المنصة.</p>
+                
+                <h3>أولاً: طبيعة العلاقة</h3>
+                <ul>
+                    <li>تعمل المنصة كوسيط تقني يهدف إلى تسهيل التواصل بين المحامين والعملاء، وإدارة طلبات الخدمات القانونية وعمليات الدفع الإلكتروني.</li>
+                    <li>تبقى المسؤولية الكاملة عن جودة الخدمات القانونية المقدمة، ومطابقتها للقوانين واللوائح النافذة وآداب مهنة المحاماة، تقع على عاتق المحامي المسجل بشكل منفرد ومستقل.</li>
+                </ul>
+                
+                <h3>ثانياً: العمولات المالية</h3>
+                <ul>
+                    <li>تستحق المنصة عمولة ثابتة مقدارها (20%) عشرون بالمئة من إجمالي قيمة الأتعاب المتحصلة مقابل الخدمات القانونية المقدمة عبر المنصة (بما في ذلك الاستشارات القانونية، وصياغة العقود، وأي خدمات أخرى).</li>
+                    <li>يتم خصم عمولة المنصة تلقائياً من المبالغ المدفوعة من قبل العملاء، ويتم تحويل صافي المستحقات البالغ (80%) ثمانين بالمئة إلى المحامي.</li>
+                </ul>
+                
+                <h3>ثالثاً: آليات السداد والتحويل</h3>
+                <ul>
+                    <li>تُحول مستحقات المحامي خلال مدة أقصاها (7) سبعة أيام عمل من تاريخ تحقق التحصيل الكامل للرسوم من العميل.</li>
+                    <li>يتحمل المحامي المسؤولية الكاملة عن دقة وصحة معلومات الحساب البنكي أو المحفظة الإلكترونية المقدمة لإتمام عمليات التحويل. ولا تتحمل المنصة أي تبعات ناتجة عن تقديم معلومات غير صحيحة أو غير مكتملة.</li>
+                    <li>يقر المحامي علماً بأن عمليات الدفع الإلكتروني قد تخضع لرسوم إضافية تفرضها جهات خارجية (مزودو خدمات الدفع الإلكتروني أو البنوك). وتقتطع هذه الرسوم من إجمالي المبلغ المحصل قبل توزيعه، ولا تتحمل المنصة مسؤولية هذه الرسوم أو نسبها.</li>
+                </ul>
+                
+                <h3>رابعاً: الالتزامات والتعهدات</h3>
+                <p>يتعهد المحامي المسجل بالالتزام بما يلي:</p>
+                <ul>
+                    <li>الالتزام الكامل بأحكام قانون نقابة المحامين الأردنيين وتعديلاته، والأنظمة الداخلية للنقابة، وآداب وسلوكيات مهنة المحاماة.</li>
+                    <li>عدم استخدام المنصة لتقديم أي خدمات أو استشارات تخالف النظام العام أو الآداب العامة أو التشريعات النافذة في المملكة الأردنية الهاشمية.</li>
+                    <li>الحفاظ على سرية معلومات العملاء وبياناتهم الشخصية والقانونية، وعدم إفشائها لأي طرف ثالث إلا في الحدود التي يسمح بها القانون أو بموافقة خطية من العميل.</li>
+                    <li>تقديم الاستشارات والخدمات القانونية بكل مهنية وموضوعية، وضمن المعايير المهنية المعتمدة.</li>
+                </ul>
+                
+                <h3>خامساً: إنهاء أو تعليق العضوية</h3>
+                <ul>
+                    <li>تحتفظ إدارة المنصة بالحق في تعليق أو إنهاء حساب أي محامٍ في حال مخالفته لأي من هذه الشروط والأحكام، أو لأي التزام قانوني أو مهني، دون حاجة إلى إنذار مسبق في حالات المخالفات الجسيمة.</li>
+                    <li>يحق للمحامي طلب إنهاء عضويته في أي وقت، على أن لا يؤثر هذا الإنهاء على حقوق المنصة في تحصيل العمولات المستحقة عن الخدمات المقدمة سابقاً.</li>
+                </ul>
+                
+                <h3>سادساً: الأحكام العامة</h3>
+                <ul>
+                    <li>تخضع هذه الشروط والأحكام للتشريعات النافذة في المملكة الأردنية الهاشمية.</li>
+                    <li>تختص محاكم محافظة عمان في نظر أي نزاعات قد تنشأ عن تفسير أو تطبيق هذه الشروط.</li>
+                </ul>
+                
+                <h3>إقرار وموافقة</h3>
+                <p>بإكمالك عملية التسجيل كمحامٍ في منصة "مستند حكومي"، فإنك تقر وتعتد بأنك قد قرأت هذه الشروط والأحكام بعناية، وفهمت كافة البنود الواردة فيها، وتوافق على الالتزام بها كاملة دون تحفظ.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Client Terms Modal -->
+    <div id="client-terms-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="terms-content">
+                <h2>شروط وأحكام استخدام منصة "مستند حكومي" للاستشارات القانونية الإلكترونية</h2>
+                
+                <h3>المقدمة</h3>
+                <p>بموافقتك على استخدام منصة "مستند حكومي" الإلكترونية (المشار إليها فيما يلي بـ"المنصة")، فإنك تقرُّ وتلتزم بجميع الشروط والأحكام الواردة أدناه. تدير المنصة محامٍ مرخص ومزاول لمهنة المحاماة في المملكة الأردنية الهاشمية، ومسجل في نقابة المحامين الأردنيين. يُرجى قراءة هذه الشروط بعناية قبل استخدام المنصة أو الخدمات المقدمة من خلالها.</p>
+                
+                <h3>أولاً: التعريفات</h3>
+                <ul>
+                    <li><strong>المنصة:</strong> منصة "مستند حكومي" الإلكترونية التي تتيح تقديم خدمات الاستشارات القانونية المدفوعة عبر الإنترنت، بإدارة محامٍ أردني مرخص. تعمل "مستند حكومي" كوسيط تقني لتسهيل التواصل بين المحامي المستقل والعميل، ولا تتحمل أي مسؤولية قانونية عن محتوى الاستشارة القانونية؛ حيث يقتصر دورها على تسهيل وصول العملاء إلى المحامين وإدارة المواعيد وعمليات الدفع.</li>
+                    <li><strong>المحامي المستقل:</strong> المحامي المرخص والمسجل في نقابة المحامين الأردنيين، والذي يقدم خدماته عبر المنصة بشكل مستقل وبموجب مسؤوليته المهنية والقانونية الخاصة. وفقاً للقانون الأردني، لا يجوز لغير المحامي المسجل في نقابة المحامين ممارسة أعمال المحاماة أو تقديم الاستشارات القانونية.</li>
+                    <li><strong>محامي "مستند حكومي":</strong> مالك المنصة أو محامٍ يعمل بصفة موظف أو متعاقد مباشر مع "مستند حكومي"، ويقدم خدمات قانونية ضمن نطاق التعاقد مع إدارتها.</li>
+                    <li><strong>المستخدم:</strong> أي شخص طبيعي يستخدم المنصة لطلب استشارة قانونية مدفوعة أو لتصفح المحتوى القانوني المتاح. يُفترض أن يكون المستخدم مؤهلاً قانونياً (بلغ السن القانونية ويتمتع بالأهلية) لاستخدام هذه الخدمة.</li>
+                    <li><strong>الاستشارة القانونية:</strong> أي معلومات أو آراء أو توجيهات قانونية يقدمها المحامي إلى المستخدم عبر وسائل التواصل المتاحة في المنصة (كالمحادثة النصية المباشرة أو المراسلة الإلكترونية أو جلسة الفيديو) مقابل أجر متفق عليه.</li>
+                </ul>
+                
+                <h3>ثانياً: بنود الخدمة</h3>
+                <ul>
+                    <li><strong>طبيعة الخدمة:</strong> تقدم المنصة خدمات استشارات قانونية عن بُعد من قبل محامٍ مرخص. تُقدم هذه الخدمات بناءً على المعلومات التي يزودها المستخدم، وهي لأغراض التوجيه والإرشاد القانوني ولا تُعد بديلاً عن الاستشارة الشخصية المباشرة عندما تكون ضرورية. لا تعتبر الخدمة توكيلاً أو تمثيلاً قانونياً للمستخدم أمام أي جهة قضائية أو إدارية، ما لم يتم إبرام اتفاقية خطية مستقلة مع المحامي وفق الأصول المتبعة.</li>
+                    <li><strong>الترخيص والالتزام القانوني:</strong> يلتزم المحامي مقدم الخدمة بأحكام قانون نقابة المحامين الأردنيين رقم 11 لسنة 1972 وتعديلاته، وبكافة آداب مهنة المحاماة والقيود القانونية على الدعاية والإعلان. لا يُعتبر أي جزء من خدمات المنصة أو محتواها دعاية ممنوعة، بل هو ضمن الإطار المسموح به قانوناً.</li>
+                    <li><strong>عدم ضمان النتائج:</strong> يبذل المحامي جهده لتقديم مشورة قانونية سليمة بناءً على خبرته المهنية، لكن المنصة لا تقدم أي ضمان بتحقيق نتائج محددة في القضايا أو الإجراءات القانونية. يتحمل المستخدم المسؤولية الكاملة عن أي قرارات أو إجراءات يتخذها بناءً على الاستشارة المقدمة.</li>
+                    <li><strong>آلية تقديم الاستشارات:</strong> تُقدم الاستشارة القانونية عبر الوسائل المتفق عليها بين المستخدم والمحامي من خلال المنصة فقط. يُحظر على المحامي التواصل مع العميل خارج المنصة أو تبادل معلومات الاتصال الشخصية، تحت طائلة المسؤولية.</li>
+                    <li><strong>الدفع والرسوم:</strong> الخدمات المقدمة عبر المنصة مدفوعة الأجر. يُحدد الأجر مسبقاً ويتفق عليه قبل البدء بالخدمة. يجب على المستخدم دفع الرسوم بالكامل مقدماً عبر وسائل الدفع الإلكترونية المعتمدة. في حال لم تُقدم الخدمة بسبب ظرف طارئ من جانب المنصة أو المحامي، يتم إعادة المبلغ المدفوع أو جدولة موعد جديد.</li>
+                    <li><strong>حدود الخدمة:</strong> يحق للمنصة أو المحامي رفض تقديم الاستشارة أو إيقافها إذا كان موضوعها مخالفاً للقانون أو الآداب العامة، أو في حال وجود تعارض مصالح. في مثل هذه الحالات، يتم إرجاع المبالغ المدفوعة عن الخدمات غير المكتملة.</li>
+                </ul>
+                
+                <h3>ثالثاً: إخلاء المسؤولية وحدود المسؤولية</h3>
+                <ul>
+                    <li><strong>عدم المسؤولية عن نتائج استخدام المشورة:</strong> لا تتحمل المنصة أو المحامي أي مسؤولية قانونية عن أي أضرار مباشرة أو غير مباشرة قد تنتج عن اعتماد المستخدم على محتوى الاستشارة المقدمة.</li>
+                    <li><strong>عدم التزام بنتائج القضايا:</strong> يقتصر دور المحامي على تقديم الرأي والمشورة القانونية، ولا يضمن تحقيق نتائج محددة. أي أمثلة ناجحة أو تجارب سابقة ترد على المنصة هي لأغراض التوضيح فقط ولا تشكل التزاماً بنتائج مماثلة.</li>
+                    <li><strong>حدود المسؤولية التقنية:</strong> تبذل المنصة جهوداً للحفاظ على عملها بشكل سليم وآمن، لكنها لا تتحمل مسؤولية انقطاع الخدمة بسبب مشاكل تقنية أو ظروف خارجة عن إرادتها.</li>
+                    <li><strong>الروابط والمحتوى الخارجي:</strong> لا تتحمل المنصة مسؤولية المحتوى الموجود في المواقع الخارجية التي قد تتضمن روابط لها.</li>
+                    <li><strong>التأمين المهني:</strong> يلتزم المحامي بمعايير المهنية المعتمدة. في حال وقوع خطأ مهني جسيم، يتحمل المحامي المسؤولية في حدود ما يفرضه القانون والأعراف المهنية.</li>
+                </ul>
+                
+                <h3>رابعاً: الخصوصية وسرية المعلومات</h3>
+                <ul>
+                    <li><strong>جمع البيانات واستخدامها:</strong> تُستخدم البيانات الشخصية والمعلومات المقدمة من المستخدم فقط لغرض تقديم الاستشارة القانونية وتحسين جودة الخدمة.</li>
+                    <li><strong>سرية الاستشارات:</strong> تلتزم المنصة والمحامي بسرية تامة لجميع المعلومات والوثائق التي يقدمها المستخدم، وفقاً لقانون نقابة المحامين والأخلاقيات المهنية.</li>
+                    <li><strong>تخزين البيانات وحمايتها:</strong> تتخذ المنصة التدابير التقنية والتنظيمية المناسبة لحماية البيانات الشخصية، مع العلم أن نقل البيانات عبر الإنترنت لا يمكن ضمان أمانه بنسبة 100%.</li>
+                    <li><strong>عدم مشاركة البيانات:</strong> لا تبيع المنصة أو تؤجر أو تشارك البيانات الشخصية مع أطراف ثالثة لأغراض تسويقية، إلا في الحالات الضرورية لتقديم الخدمة أو للامتثال للالتزامات القانونية.</li>
+                    <li><strong>حقوق المستخدم:</strong> يحق للمستفيد الاستفسار عن بياناته الشخصية المخزنة، أو طلب تصحيحها أو حذفها، ما لم يكن الاحتفاظ بها مطلوباً قانونياً.</li>
+                </ul>
+                
+                <h3>خامساً: أحكام ختامية عامة</h3>
+                <ul>
+                    <li><strong>القانون الواجب التطبيق وحل النزاعات:</strong> تخضع هذه الشروط والأحكام للقوانين المعمول بها في المملكة الأردنية الهاشمية. تختص محاكم عمان - الأردن أو المحاكم الأردنية المختصة بالفصل في أي نزاعات تنشأ عن تفسير أو تنفيذ هذه الشروط.</li>
+                    <li><strong>الامتثال لقواعد النقابة والأخلاقيات:</strong> وُضعت هذه الشروط بما يتوافق مع قانون نقابة المحامين الأردنيين وأخلاقيات المهنة. في حال تعارض أي بند مع نص إلزامي في القوانين النافذة، يُعدل البند بالقدر اللازم للتوفيق، مع استمرار سريان باقي الشروط.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                nav.classList.remove('active');
+            }
+        });
+
+        // File Upload Preview
+        const fileInputs = document.querySelectorAll('.file-upload-input');
+        fileInputs.forEach(input => {
+            input.addEventListener('change', function() {
+                const fileName = this.files[0]?.name || 'لم يتم اختيار ملف';
+                const label = this.nextElementSibling;
+                label.innerHTML = `<i class="fas fa-file"></i> ${fileName}`;
+            });
+        });
+
+        // Form Submission
+        const form = document.getElementById('lawyer-registration-form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic validation
+            const requiredFields = form.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value) {
+                    isValid = false;
+                    field.style.borderColor = 'var(--danger)';
+                } else {
+                    field.style.borderColor = '#ddd';
+                }
+            });
+            
+            if (isValid) {
+                alert('تم تقديم طلب الانضمام بنجاح! سيتم مراجعة طلبك من قبل الإدارة والرد عليك خلال 3 أيام عمل.');
+                // In a real application, you would send the form data to the server here
+            } else {
+                alert('يرجى ملء جميع الحقول المطلوبة!');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu after clicking a link
+                    nav.classList.remove('active');
+                }
+            });
+        });
+
+        // Terms Modal Functionality
+        const lawyerTermsModal = document.getElementById('lawyer-terms-modal');
+        const clientTermsModal = document.getElementById('client-terms-modal');
+        const closeButtons = document.querySelectorAll('.close-modal');
+        
+        // Show lawyer terms modal
+        document.querySelectorAll('#show-lawyer-terms, #show-lawyer-terms-footer').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                lawyerTermsModal.style.display = 'block';
+            });
+        });
+        
+        // Show client terms modal
+        document.querySelectorAll('#show-client-terms-footer').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                clientTermsModal.style.display = 'block';
+            });
+        });
+        
+        // Close modals
+        closeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                lawyerTermsModal.style.display = 'none';
+                clientTermsModal.style.display = 'none';
+            });
+        });
+        
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === lawyerTermsModal) {
+                lawyerTermsModal.style.display = 'none';
+            }
+            if (e.target === clientTermsModal) {
+                clientTermsModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
